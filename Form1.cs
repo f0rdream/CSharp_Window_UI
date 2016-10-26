@@ -17,8 +17,7 @@ namespace Window_UI
         public Form1()
         {
             InitializeComponent();
-            SetGrid();
-            AmountStu();
+            DisplayGrid();
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -48,52 +47,57 @@ namespace Window_UI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rownuber = gv.CurrentCell.RowIndex;
-            textBox7.Text =gv.Rows[rownuber].Cells[0].Value.ToString();
-            textBox8.Text = gv.Rows[rownuber].Cells[1].Value.ToString();
-            textBox10.Text = gv.Rows[rownuber].Cells[2].Value.ToString();
-            textBox6.Text = gv.Rows[rownuber].Cells[3].Value.ToString();
-            textBox5.Text = gv.Rows[rownuber].Cells[4].Value.ToString();
-            textBox12.Text = gv.Rows[rownuber].Cells[5].Value.ToString();
-            textBox11.Text = gv.Rows[rownuber].Cells[6].Value.ToString();
-            textBox9.Text = gv.Rows[rownuber].Cells[7].Value.ToString();
-            textBox16.Text = gv.Rows[rownuber].Cells[8].Value.ToString();
-            textBox15.Text = gv.Rows[rownuber].Cells[9].Value.ToString();
-            textBox14.Text = gv.Rows[rownuber].Cells[10].Value.ToString();
-            textBox13.Text = gv.Rows[rownuber].Cells[11].Value.ToString();
+            int rownumber = gv.CurrentCell.RowIndex;
+            textBox7.Text =gv.Rows[rownumber].Cells[0].Value.ToString();
+            textBox8.Text = gv.Rows[rownumber].Cells[1].Value.ToString();
+            textBox10.Text = gv.Rows[rownumber].Cells[2].Value.ToString();
+            textBox6.Text = gv.Rows[rownumber].Cells[3].Value.ToString();
+            textBox5.Text = gv.Rows[rownumber].Cells[4].Value.ToString();
+            textBox12.Text = gv.Rows[rownumber].Cells[5].Value.ToString();
+            textBox11.Text = gv.Rows[rownumber].Cells[6].Value.ToString();
+            textBox9.Text = gv.Rows[rownumber].Cells[7].Value.ToString();
+            textBox16.Text = gv.Rows[rownumber].Cells[8].Value.ToString();
+            textBox15.Text = gv.Rows[rownumber].Cells[9].Value.ToString();
+            textBox14.Text = gv.Rows[rownumber].Cells[10].Value.ToString();
+            textBox13.Text = gv.Rows[rownumber].Cells[11].Value.ToString();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            var nameText = textBox1.Text;
+            Search(nameText);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-//            if (textBox5.Text == "" || textBox8.Text == "")
-//            {
-//                MessageBox.Show("学生姓名和学号为必填项");
-//                return;
-//            }
-//            else
-//            {
-//                Student Mystu = new Student(textBox5.Text, (decimal)textBox8.Text, textBox6.Text);
-//            }
-            
+            AddDoc();
+
+        }
+
+        private void DisplayGrid()
+        {
+            SetGrid();
+            AmountStu();
         }
         private void SetGrid()
         {
             var query = GetXMLData();
 
             gv.DataSource = query;
-            
 
-
-//            DataSet dsRule = new DataSet();
-//            XmlDocument xmlDoc = new XmlDocument();
-//            xmlDoc.Load("./data.xml");
-//            XmlNodeList xWitsTableList = xmlDoc.SelectNodes("/Students");
-//            foreach(XmlNode node2 in xOrach)
+            int rownumber = 1;
+            textBox7.Text = gv.Rows[rownumber].Cells[0].Value.ToString();
+            textBox8.Text = gv.Rows[rownumber].Cells[1].Value.ToString();
+            textBox10.Text = gv.Rows[rownumber].Cells[2].Value.ToString();
+            textBox6.Text = gv.Rows[rownumber].Cells[3].Value.ToString();
+            textBox5.Text = gv.Rows[rownumber].Cells[4].Value.ToString();
+            textBox12.Text = gv.Rows[rownumber].Cells[5].Value.ToString();
+            textBox11.Text = gv.Rows[rownumber].Cells[6].Value.ToString();
+            textBox9.Text = gv.Rows[rownumber].Cells[7].Value.ToString();
+            textBox16.Text = gv.Rows[rownumber].Cells[8].Value.ToString();
+            textBox15.Text = gv.Rows[rownumber].Cells[9].Value.ToString();
+            textBox14.Text = gv.Rows[rownumber].Cells[10].Value.ToString();
+            textBox13.Text = gv.Rows[rownumber].Cells[11].Value.ToString();
         }
         private List<Student> GetXMLData()
         {
@@ -137,12 +141,64 @@ namespace Window_UI
 
         private void AddDoc()
         {
-            
+
+            var xDoc = XDocument.Load("./data.xml");
+            XElement nodeXML = new XElement("Student");
+            var root = xDoc.Element("Root");
+            nodeXML.Add(new XElement("Name", textBox7.Text));
+            nodeXML.Add(new XElement("ID", textBox8.Text));
+            nodeXML.Add(new XElement("Gender", textBox10.Text));
+            nodeXML.Add(new XElement("Class", textBox6.Text));
+            nodeXML.Add(new XElement("School", textBox5.Text));
+            nodeXML.Add(new XElement("Region", textBox12.Text));
+            nodeXML.Add(new XElement("Type", textBox11.Text));
+            nodeXML.Add(new XElement("Health", textBox9.Text));
+            nodeXML.Add(new XElement("IDCard", textBox16.Text));
+            nodeXML.Add(new XElement("Date", textBox15.Text));
+            nodeXML.Add(new XElement("PostNum", textBox14.Text));
+            nodeXML.Add(new XElement("Phone", textBox13.Text));
+            root.Add(nodeXML);
+            xDoc.Save("./data.xml");
+            DisplayGrid();
         }
 
-        private void Search()
+        private void DelDoc(int RowNum)
         {
-            
+            var xDoc = XDocument.Load("./data.xml");
+            var stu = xDoc.Descendants("Student").ElementAt(RowNum);
+            stu.Remove();
+            xDoc.Save("./data.xml");
+            DisplayGrid();
+        }
+
+        private void Search(string thing)
+        {
+
+            var xDoc = XDocument.Load("./data.xml");
+            var query = (from student in xDoc.Descendants("Student")
+                         where student.Element("Name").Value == thing
+                         select new Student()
+                         {
+                             ID = Convert.ToInt64(student.Element("ID").Value),
+                             Name = student.Element("Name").Value,
+                             Gender = student.Element("Gender").Value,
+                             StuClass = student.Element("Class").Value,
+                             School = student.Element("School").Value,
+                             Region = student.Element("Region").Value,
+                             Type = student.Element("Type").Value,
+                             Health = student.Element("Health").Value,
+                             IDCard = Convert.ToInt64(student.Element("IDCard").Value),
+                             StuDate = Convert.ToDateTime(student.Element("Date").Value),
+                             PostNum = Convert.ToInt64(student.Element("PostNum").Value),
+                             PhoneNum = Convert.ToInt64(student.Element("Phone").Value)
+                         }).ToList();
+            gv.DataSource = query;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            int rowNum = gv.CurrentCell.RowIndex;
+            DelDoc(rowNum);
         }
     }
 }
