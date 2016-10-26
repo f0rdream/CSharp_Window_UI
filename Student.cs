@@ -9,29 +9,31 @@ namespace Window_UI
     public class Student
     {
         public string Name { get; set; }
-        public decimal ID { get; set; }
+        public long ID { get; set; }
+        public string Gender { get; set; }
         public string StuClass { get; set; }
         public string School { get; set; }
         public string Region { get; set; }
-        public DateTime StuDate { get; set; }
+        public string Type { get; set; }
         public string Health { get; set; }
-        public decimal IDCard { get; set; }
-        public decimal PostNum { get; set; }
-        public decimal PhoneNum { get; set; }
+        public long IDCard { get; set; }
+        public DateTime StuDate { get; set; }     
+        public long PostNum { get; set; }
+        public long PhoneNum { get; set; }
 
-        public Student(string Name, decimal ID, string StuClass, string School, string Region, DateTime StuDate,
-            string Health, decimal IDCard, decimal PostNum, decimal PhoneNum)
-        {
-            this.Name = Name;
-            this.ID = ID;
-            this.StuClass = StuClass;
-            this.School = School;
-            this.Region = Region;
-            this.StuDate = StuDate;
-            this.Health = Health;
-            this.IDCard = IDCard;
-            this.PostNum = PostNum;
-            this.PhoneNum = PhoneNum;
-        }
+//        public Student(string Name, decimal ID, string StuClass = "", string School = "", string Region = "", DateTime StuDate = null,
+//            string Health = "", decimal IDCard = 0, decimal PostNum = 0, decimal PhoneNum = 0)
+//        {
+//            this.Name = Name;
+//            this.ID = ID;
+//            this.StuClass = StuClass;
+//            this.School = School;
+//            this.Region = Region;
+//            this.StuDate = StuDate;
+//            this.Health = Health;
+//            this.IDCard = IDCard;
+//            this.PostNum = PostNum;
+//            this.PhoneNum = PhoneNum;
+//        }
     }
 }
