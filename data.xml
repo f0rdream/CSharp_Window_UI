@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet title='StuInfo'?>
+<!--some comments-->
+<Root>
+  <Student>
+    <Name>Li Lei</Name>
+    <ID>2015301020089</ID>
+    <Gender>Male</Gender>
+    <Class>ISS1</Class>
+    <School>ISS</School>
+    <Region>信息学部</Region>
+    <Type>在校生</Type>
+    <Health>Good</Health>
+    <IDCard>140624123407042424</IDCard>
+    <Date>2015/07/24</Date>
+    <PostNum>038300</PostNum>
+    <Phone>13016464640</Phone>
+  </Student>
+  <Student>
+    <Name>Li Lei</Name>
+    <ID>2015301020091</ID>
+    <Gender>Male</Gender>
+    <Class>ISS1</Class>
+    <School>ISS</School>
+    <Region>信息学部</Region>
+    <Type>在校生</Type>
+    <Health>Good</Health>
+    <IDCard>140624123407042424</IDCard>
+    <Date>2015/07/24</Date>
+    <PostNum>038300</PostNum>
+    <Phone>13016464640</Phone>
+  </Student>
+  <Student>
+    <Name>Han Meimei2</Name>
+    <ID>2015301020090</ID>
+    <Gender>Male</Gender>
+    <Class>ISS1</Class>
+    <School>CS</School>
+    <Region>信息学部</Region>
+    <Type>在校生</Type>
+    <Health>Good</Health>
+    <IDCard>140624123407042424</IDCard>
+    <Date>7/24/2015 12:00:00 AM</Date>
+    <PostNum>38302</PostNum>
+    <Phone>13016464640</Phone>
+  </Student>
+  <Student>
+    <Name>Han Meimei2</Name>
+    <ID>2015301020090</ID>
+    <Gender>Male</Gender>
+    <Class>ISS2</Class>
+    <School>CS</School>
+    <Region>信息学部</Region>
+    <Type>在校生</Type>
+    <Health>Good</Health>
+    <IDCard>140624123407042424</IDCard>
+    <Date>7/24/2015 12:00:00 AM</Date>
+    <PostNum>38300</PostNum>
+    <Phone>13016464640</Phone>
+  </Student>
+  <Student>
+    <Name>Li Lei2</Name>
+    <ID>2015301020099</ID>
+    <Gender>Male</Gender>
+    <Class>ISS1</Class>
+    <School>ISS</School>
+    <Region>文理学部</Region>
+    <Type>在校生</Type>
+    <Health>Good</Health>
+    <IDCard>140624123407042424</IDCard>
+    <Date>7/24/2015 12:00:00 AM</Date>
+    <PostNum>38300</PostNum>
+    <Phone>13016464640</Phone>
+  </Student>
+</Root>
+<!--more comments-->

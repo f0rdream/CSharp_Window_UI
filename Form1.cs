@@ -200,5 +200,21 @@ namespace Window_UI
             int rowNum = gv.CurrentCell.RowIndex;
             DelDoc(rowNum);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AddDoc();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int rowNum = gv.CurrentCell.RowIndex;
+            DelDoc(rowNum);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

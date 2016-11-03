@@ -20,20 +20,5 @@ namespace Window_UI
         public DateTime StuDate { get; set; }     
         public long PostNum { get; set; }
         public long PhoneNum { get; set; }
-
-//        public Student(string Name, decimal ID, string StuClass = "", string School = "", string Region = "", DateTime StuDate = null,
-//            string Health = "", decimal IDCard = 0, decimal PostNum = 0, decimal PhoneNum = 0)
-//        {
-//            this.Name = Name;
-//            this.ID = ID;
-//            this.StuClass = StuClass;
-//            this.School = School;
-//            this.Region = Region;
-//            this.StuDate = StuDate;
-//            this.Health = Health;
-//            this.IDCard = IDCard;
-//            this.PostNum = PostNum;
-//            this.PhoneNum = PhoneNum;
-//        }
     }
 }
